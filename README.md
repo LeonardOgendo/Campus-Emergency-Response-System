@@ -1,6 +1,6 @@
-# CERS - Campus Emergency Response System
+## CERS - Campus Emergency Response System
 
-## 📌 Overview
+### 📌 Overview
 CERS (Campus Emergency Response System) is a cross-platform web application 
 designed to enhance campus safety by providing real-time emergency reporting, 
 responder coordination, and instant alerts. Built with React (frontend) and Django (backend) 
@@ -8,7 +8,7 @@ using DRF for API communication, CERS ensures that emergencies are reported, ass
 
 <br>
 
-## Key Features
+### Key Features
 
 ✅ One-click emergency reporting with automatic GPS location.
 
@@ -25,7 +25,7 @@ using DRF for API communication, CERS ensures that emergencies are reported, ass
 
 <br>
 
-## 🛠️ Tech Stack
+### 🛠️ Tech Stack
 
 - `Frontend`: React, CSS
 
@@ -37,14 +37,15 @@ using DRF for API communication, CERS ensures that emergencies are reported, ass
 
 <br>
 
-## 🚀 Installation Guide
+### 🚀 Installation Guide
 
 Follow these steps to setup CERS locally:
 
 1. Clone Repository
 
 ```
-
+git clone https://github.com/LeonardOgendo/Campus-Emergency-Response-System.git CERS_Project
+cd CERS_Project
 ```
 
 <br>

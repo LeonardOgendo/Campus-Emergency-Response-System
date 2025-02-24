@@ -1,7 +1,7 @@
-import Navbar from "./navbar"
+import Navbar from "./Navbar"
 
 
-export default function Notificication(){
+export default function Notification(){
     return(
         <>
         

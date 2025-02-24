@@ -1,11 +1,11 @@
 import './App.css';
+import Navigation from './components/Navigation';
 
 const App = () => {
     return(
-        <div>
-            <h4>Admin Dashboard</h4>
-            <p>... in development</p>
-        </div>
+        <>
+            <Navigation />
+        </>
     )
 }
 

@@ -1,0 +1,20 @@
+
+.btn-custom{
+    width: 100px;
+    border-radius: 10px;
+    background: #f24236;
+    border: none;
+
+    & .logout {
+        color: #fff;
+        text-decoration: none;
+    }
+}
+.c-item{
+    height: 600px;  
+}
+.c-image{
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6);
+}

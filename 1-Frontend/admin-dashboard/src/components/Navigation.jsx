@@ -1,5 +1,6 @@
 import '../styles.css';
 import Dashboard from './Dashboard';
+import Search from './Search';
 import Logo from '../assets/cers_logox2.png';
 import UserIcon from '../assets/logo_try.jpg';
 
@@ -10,7 +11,7 @@ const Navigation = () => {
                 <div class="py-4 ps-2 custom-navigation">
                     <div className="brand ps-3">
                         <img id='logo' src={Logo} alt="CERS_Logo" />
-                        <span><a href="#" className='nav-brand text-decoration-none fw-bold fs-5 text-dark '>CERS</a></span>
+                        <span><a href="#" className='nav-brand text-decoration-none fw-bold fs-5 text-dark '>CE<span style={{ color: '#f24236'}}>RS</span></a></span>
                     </div>
 
                     <div className='side-nav'>
@@ -28,8 +29,15 @@ const Navigation = () => {
                 </div>
 
                 <div className='home-dash'>
+                    
                     <div className='mini-nav pt-3 mb-2 pb-2 justify-content-end pe-5'>
+                        <div className="search-bar d-flex">
+                            <i className="fa fa-search mt-1 me-1 text-secondary"></i>
+                            <Search />
+                        </div>
+
                         <i className='fa fa-moon-o'></i>
+                        <i className="fa fa-ambulance"></i>
                         <i className='fa fa-envelope'></i>
                         <i className='fa fa-bell'></i>
 

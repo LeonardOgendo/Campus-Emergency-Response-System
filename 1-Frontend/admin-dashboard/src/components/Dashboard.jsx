@@ -52,20 +52,20 @@ const Dashboard = () => {
             
             <div className="occupied-areas">
                 <div className="py-4 px-3 rounded">
-                    <span className='name-label'>Name: </span><span className='area-name'>Lurambi</span><br></br>
-                    <span>Population: </span><span>3,000</span>    
+                    <span className='name-label'>Name : </span><span className='area-name'>Lurambi</span><br></br>
+                    <span className='name-label'>Population : </span><span className='text-white fw-bold ms-1 pop-number'>3,000</span>    
                 </div>
                 <div className="py-4 px-3 rounded">
-                    <span className='name-label'>Name: </span><span className='area-name'>Sichirayi</span><br></br>
-                    <span>Population: </span><span>5,000</span>
+                    <span className='name-label'>Name : </span><span className='area-name'>Sichirayi</span><br></br>
+                    <span className='name-label'>Population : </span><span className='text-white fw-bold ms-1 pop-number'>5,000</span>
                 </div>
                 <div className="py-4 px-3 rounded">
-                    <span className='name-label'>Name: </span><span className='area-name'>Koromatangi</span><br></br>
-                    <span>Population: </span><span>5,000</span>
+                    <span className='name-label'>Name : </span><span className='area-name'>Koromatangi</span><br></br>
+                    <span className='name-label'>Population : </span><span className='text-white fw-bold ms-1 pop-number'>5,000</span>
                 </div>
                 <div className="py-4 px-3 rounded">
-                    <span className='name-label'>Name: </span><span className='area-name'>Kefinco</span><br></br>
-                    <span>Population: </span><span>3, 260</span>
+                    <span className='name-label'>Name : </span><span className='area-name'>Kefinco</span><br></br>
+                    <span className='name-label'>Population : </span><span className='text-white fw-bold ms-1 pop-number'>3, 260</span>
                 </div>
             </div>    
         </>

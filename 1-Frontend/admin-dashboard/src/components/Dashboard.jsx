@@ -1,6 +1,7 @@
 import '../styles.css';
 
 const Dashboard = () => {
+    console.log("Dashbaord loaded")
     return(
         <>
             <div className='header p-2 rounded'>

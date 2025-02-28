@@ -3,8 +3,9 @@ import Dashboard from './Dashboard';
 import Search from './Search';
 import Logo from '../assets/cers_logox2.png';
 import UserIcon from '../assets/logo_try.jpg';
+import { Outlet } from 'react-router-dom';
 
-const Navigation = () => {
+const Layout = () => {
     return(
         <>
             <div class="main">
@@ -57,7 +58,7 @@ const Navigation = () => {
 
 
                     <div className="dash-content ms-3 me-4">
-                        <Dashboard />
+                        <Outlet />
                     </div>
                 </div>
             </div>
@@ -65,4 +66,4 @@ const Navigation = () => {
     )
 }
 
-export default Navigation
+export default Layout

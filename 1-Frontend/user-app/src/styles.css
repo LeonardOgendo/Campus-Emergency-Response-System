@@ -11,10 +11,10 @@
     }
 }
 .c-item{
-    height: 600px;  
+    height: 480px;  
 }
 .c-image{
     height: 100%;
-    object-fit: cover;
+    object-fit:cover;
     filter: brightness(0.6);
 }

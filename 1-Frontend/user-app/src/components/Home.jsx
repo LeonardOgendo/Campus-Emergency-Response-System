@@ -1,7 +1,7 @@
 import Navbar from './Navbar';
-import Slider from './Slider';
 import Footer from './Footer';
 import Content from './Content';
+import Slider from './slider';
 
 export default function Home(){
     return(

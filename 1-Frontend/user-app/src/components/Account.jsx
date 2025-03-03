@@ -5,7 +5,9 @@ export default function Account(){
     return(
         <>
         <Navbar/>
-        <h1>Account</h1>
+        <div className="container section-title" data-aos="fade-up">
+        <h2>my account</h2>   
+    </div>
         <Footer/>
         </>
         

@@ -1,3 +1,5 @@
+import '../main.css';
+import Footer from "./Footer"
 import Navbar from "./Navbar"
 
 export default function Contact(){
@@ -5,7 +7,16 @@ export default function Contact(){
     return(
         <>
         <Navbar/>
-        <h1>contact us</h1>
+       
+    <div className="container section-title" data-aos="fade-up">
+        <h2>Contact Us</h2>   
+    </div>
+
+        
+    
+
+
+
         <Footer/>
         </>
     )

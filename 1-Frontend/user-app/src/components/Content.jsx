@@ -2,31 +2,32 @@ export default function Content(){
     return(
        
         <> 
+
+    <div className="container section-title" data-aos="fade-up">
+        <h2>features</h2>   
+    </div>
+        
         <div className="dash-container">
+            
             <div className='box-1'>
                 <div id="t-users" className='border p-3 rounded'>
-                    <h5>Total Users</h5>
-                    <p className='fw-bold fs-4'>15,300</p>
+                    <h5></h5>
+                    <p className='fw-bold fs-4'>Report Emergency</p>
                 </div>
                 <div id="t-emeg" className='border p-3 rounded'>
-                    <h5>Total Emergency Reports</h5>
-                    <p className='fw-bold fs-4'>530</p>
+                    
+                    <p className='fw-bold fs-4'>Track Response status</p>
                 </div>
                 <div id="m-flagd" className='border p-3 rounded'>
-                    <h5>Most Flagged Areas</h5>
-                    <p className="fw-bold fs-4">3</p>
+                    <h5></h5>
+                    <p className="fw-bold fs-4">View Flagged Area</p>
                 </div>
                 <div id="t-resn" className='border p-3 rounded'>
-                    <h5>Total Responders</h5>
-                    <p className="fw-bold fs-4">28</p>
+                    <h5></h5>
+                    <p className="fw-bold fs-4">Incident History</p>
                 </div>
             </div>
-            <div className="box-2">
-                <div id="r-emeg" className='border p-3 rounded'>
-                    <h5>Resolved Emergencies</h5>
-                    <p className='fw-bold fs-4'>503</p>
-                </div>
-            </div>
+            
         </div>
       
       

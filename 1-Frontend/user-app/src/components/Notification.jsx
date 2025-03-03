@@ -7,7 +7,10 @@ export default function Notification(){
         <>
         
         <Navbar/>
-        <h1>Notifications</h1>
+    <div className="container section-title" data-aos="fade-up">
+        <h2>notifications</h2>   
+    </div>
+
         <Footer/>
 
         </>

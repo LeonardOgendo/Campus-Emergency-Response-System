@@ -18,7 +18,7 @@ const App = () => {
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Dashboard />} />
                     <Route path="emergencies/active" element={<ActiveEmergencies />} />
-                    <Route path="emegencies/resolved" element={<ResolvedEmergencies />} />
+                    <Route path="emergencies/resolved" element={<ResolvedEmergencies />} />
                     <Route path="responders/view" element={<ViewResponders />} />
                     <Route path="responders/assign" element={<AssignResponders />} />
                     <Route path="users/approve" element={<ApproveAccounts />} />

@@ -6,9 +6,20 @@ export default function Navbar(){
     return(
 
     <div className="container">
-        <nav className="navbar navbar-expand-md ">
+        <nav className="navbar navbar-expand-md "  style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height:"70px",
+            zIndex: 1000,
+            backgroundColor: "#fff",
+            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)"
+        }}>
              <div className="brand ps-3">
-                 <img id='logo' src={Logo} alt="CERS_Logo" />
+                 <img id='logo' src={Logo} alt="CERS_Logo" style={{
+                    height:"60px",
+                 }}/>
                  <span><a href="#" className='nav-brand text-decoration-none fw-bold fs-5 text-dark '>CERS</a></span>
             </div>
             

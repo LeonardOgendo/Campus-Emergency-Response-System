@@ -28,13 +28,7 @@ export default function Content(){
                 </div>
             </div>
         </div>
-
-        <div className='header p-2 mt-5'>
-            <span className='fw-bold'>Most Student Occupancy Areas</span>
-        </div>
-        
-  
-        
+      
       
     </>
 

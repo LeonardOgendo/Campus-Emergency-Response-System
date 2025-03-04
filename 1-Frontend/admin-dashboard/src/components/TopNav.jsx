@@ -9,11 +9,25 @@ const TopNav = () => {
                 <i className="fa fa-search mt-1 me-1 text-secondary"></i>
                 <Search />
             </div>
+            <div className="ico-container">
+                <i className='fa fa-moon-o'></i>
+            </div>
 
-            <i className='fa fa-moon-o'></i>
-            <i className="fa fa-ambulance"></i>
-            <i className='fa fa-envelope'></i>
-            <i className='fa fa-bell'></i>
+            <div className="ico-container">         
+                <i className="fa fa-ambulance"></i>
+                <span>5</span>
+            </div>
+
+            <div className="ico-container">
+                <i className='fa fa-envelope'></i>
+                <span>4</span>
+            </div>
+            
+            <div className="ico-container">
+                <i className='fa fa-bell'></i>
+                <span>2</span>
+            </div>
+            
 
             <div className="user ms-3">
                 <div id="logo">

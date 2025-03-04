@@ -8,6 +8,10 @@ import ViewResponders from './components/ViewResponders';
 import AssignResponders from './components/AssignResponders';
 import ApproveAccounts from './components/ApproveAccounts';
 import RemoveAccounts from './components/RemoveAccounts';
+import FlaggedAreas from './components/FlaggedAreas';
+import FlagArea from './components/FlagArea';
+import Notifications from './components/Notifications';
+import Messages from './components/Messages';
 
 const App = () => {
 
@@ -23,6 +27,10 @@ const App = () => {
                     <Route path="responders/assign" element={<AssignResponders />} />
                     <Route path="users/approve" element={<ApproveAccounts />} />
                     <Route path="users/remove" element={<RemoveAccounts />} />
+                    <Route path="admin/flagged-areas" element={<FlaggedAreas />} />
+                    <Route path="admin/flag-area" element={<FlagArea />} />
+                    <Route path="admin/notifications" element={<Notifications />} />
+                    <Route path="admin/messages" element={<Messages />} />
                 </Route>
             </Routes>
        </BrowserRouter>

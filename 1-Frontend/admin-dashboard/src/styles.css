@@ -21,15 +21,31 @@
 
 .custom-navigation {
     flex-basis: 20%;
+    min-width: 20%;
     height: 100vh;
 
-    & .side-nav ul li{
+    & .side-nav .main-links {
         list-style: none;
         margin-bottom: 35px;
     }
+    & .side-nav .notification-count {
+        float: right;
+        background: blue;
+        color: #fff;
+        border-radius: 50%;
+        padding: 0 6px;
+        font-size: 0.85rem;
+        font-weight: bold;
+        margin-top: 2px;
+    }
+
+    & .side-nav .dropdowns > li {
+        list-style: none;
+        margin-bottom: 10px;
+    }
 
     & .ico{
-        margin-right: 10px;
+        margin-right: 12px;
     }
 
     & .ico-more {
@@ -73,11 +89,25 @@
             border-radius: 50%;
         }
 
-        & > i {
+        & .ico-container {
             margin-top: 14px;
             margin-right: 25px;
             font-size: 1.05rem;
             cursor: pointer;
+            position: relative;
+        }
+
+        & .ico-container span {
+            position: absolute;
+            top: -5px;
+            left: 10px;
+            background: blue;
+            font-size: 0.8rem;
+            color: #fff;
+            border-radius: 50%;
+            padding: 0 6px;
+            font-weight: bold;
+
         }
 
         .user {
@@ -112,11 +142,16 @@
         flex-wrap: wrap;
 
 
-        & div{
+        & > div{
             width: 48%;
             height: 150px;
             margin: 0 auto;
             margin-bottom: 10px;
+            cursor: pointer;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        & > div:hover {
+            box-shadow: 0 0 15px 0 #777;
         }
 
         & #t-users {
@@ -197,7 +232,13 @@
             color: #fff;
             position: relative;
             background: linear-gradient(135deg, #379634, #777);
+            transition: box-shadow 0.3s ease-in-out;
         }
+
+        & div:hover {
+            box-shadow: 0 0 15px 0 #777;
+        }
+
         & div::before {
             content: '';
             position: absolute;

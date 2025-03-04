@@ -4,17 +4,21 @@ import Contact from './components/Contact';
 import Account from './components/Account';
 import Notificication from './components/Notification';
 import Layout from './components/Layout';
+import Home from './components/Home';
+import Messages from './components/Messages';
 
 const App = () => {
     return(
         <div >
         <BrowserRouter>
           <Routes>
-            <Route index element={<Layout />} />
-            <Route path='/home' element={<Layout />} />
-            <Route path='/account' element={<Account />} />
-            <Route path='/notification' element={<Notificication />} />
-            <Route path='/contact' element={<Contact />} />
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route path='user/account' element={<Account />} />
+              <Route path='user/notification' element={<Notificication />} />
+              <Route path='user/messages' element={<Messages />} />
+              <Route path='user/contact' element={<Contact />} />
+            </Route>
           </Routes>
           </BrowserRouter>
         </div>

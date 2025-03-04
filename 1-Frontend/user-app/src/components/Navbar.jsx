@@ -15,16 +15,19 @@ export default function Navbar(){
             <div className='main-links'>
                 <ul>
                     <li>
-                        <Link to="/home" className="nav-link">Home</Link>
+                        <Link to="/" className="nav-link">Home</Link>
                     </li>
                     <li>
-                        <Link to="/notification" className="nav-link">Notifications</Link>
+                        <Link to="user/notification" className="nav-link">Notifications <span className="main-badges">3</span></Link>
                     </li>
                     <li>
-                        <Link to="/account" className="nav-link">Account</Link>
+                        <Link to="user/messages" className='nav-link'>Messages <span className="main-badges">5</span></Link>
                     </li>
                     <li>
-                        <Link to="/contact" className="nav-link">Contact Us</Link>
+                        <Link to="user/account" className="nav-link">Account</Link>
+                    </li>
+                    <li>
+                        <Link to="user/contact" className="nav-link">Contact Us</Link>
                     </li>
                 </ul>
             </div>

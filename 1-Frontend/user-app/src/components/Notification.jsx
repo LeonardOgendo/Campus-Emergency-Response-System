@@ -5,14 +5,9 @@ import Navbar from "./Navbar"
 export default function Notification(){
     return(
         <>
-        
-        <Navbar/>
-    <div className="container section-title" data-aos="fade-up">
-        <h2>notifications</h2>   
-    </div>
-
-        <Footer/>
-
+            <div className="container section-title" data-aos="fade-up">
+                <p>...awaiting JSON</p>   
+            </div>
         </>
         
     )

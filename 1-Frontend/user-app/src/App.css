@@ -2,5 +2,24 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+   
+}
+.main{
+    width: 80%;
+    margin: 30px auto;
+    display: flex;
+
+    & .side-nav {
+        flex-basis: 20%;
+    }
+
+    & .content-body {
+        flex-basis: 80%;
+
+        & .dynamic-content {
+            background: #f5f5f5;
+            padding: 18px 15px;
+            border-radius: 5px;
+        }
+    }
 }

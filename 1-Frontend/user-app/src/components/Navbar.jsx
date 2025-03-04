@@ -6,45 +6,26 @@ export default function Navbar(){
     return(
 
     <div className="container">
-        <nav className="navbar navbar-expand-md "  style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height:"70px",
-            zIndex: 1000,
-            backgroundColor: "#fff",
-            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)"
-        }}>
+        <nav>
              <div className="brand ps-3">
-                 <img id='logo' src={Logo} alt="CERS_Logo" style={{
-                    height:"60px",
-                 }}/>
-                 <span><a href="#" className='nav-brand text-decoration-none fw-bold fs-5 text-dark '>CERS</a></span>
+                 <img id='logo' src={Logo} alt="CERS_Logo" style={{ height:"50px" }} />
+                 <span ><a href="#" className='nav-brand text-decoration-none fw-bold fs-5 text-dark'>CE<span style={{ color: 'red'}}>RS</span></a></span>
             </div>
-            
 
-            <button className="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span><i className='fa fa-bars'></i></span>
-            </button>
-
-            <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul className="navbar-nav">
-                <li className="nav-item">
-                    <Link to="/home" className="nav-link">Home</Link>
-                </li>
-                <li className="nav-item">
-                    <Link to="/notification" className="nav-link">Notifications</Link>
-                </li>
-                <li className="nav-item">
-                    <Link to="/account" className="nav-link">Account</Link>
-                </li>
-                <li className="nav-item">
-                    <Link to="/contact" className="nav-link">Contact Us</Link>
-                </li>
-                    <button className="btn-custom">
-                        <a href="#" className="logout">Logout</a>
-                    </button>
+            <div className='main-links'>
+                <ul>
+                    <li>
+                        <Link to="/home" className="nav-link">Home</Link>
+                    </li>
+                    <li>
+                        <Link to="/notification" className="nav-link">Notifications</Link>
+                    </li>
+                    <li>
+                        <Link to="/account" className="nav-link">Account</Link>
+                    </li>
+                    <li>
+                        <Link to="/contact" className="nav-link">Contact Us</Link>
+                    </li>
                 </ul>
             </div>
            

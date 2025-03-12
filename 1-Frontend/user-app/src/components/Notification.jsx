@@ -1,5 +1,5 @@
 import Footer from "./Footer"
-import Navbar from "./navbar"
+import Navbar from "./Navbar";
 
 
 export default function Notification(){

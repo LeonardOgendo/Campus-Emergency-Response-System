@@ -73,7 +73,7 @@ npm run dev   # Start development server
 
 <br>
 
-4. Configure Environent Variables
+4. Configure Environment Variables
 
 Create a `.env` file for Django & React, specifying Twilio credentials,
 database configs, and API keys.

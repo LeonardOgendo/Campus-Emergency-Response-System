@@ -27,7 +27,7 @@ using DRF for API communication, CERS ensures that emergencies are reported, ass
 
 ### 🛠️ Tech Stack
 
-- `Frontend`: React, CSS
+- `Frontend`: React, Bootstrap, CSS
 
 - `Backend`: Django (Django REST Framework for API communication)
 

@@ -5,6 +5,7 @@ import Account from './components/Account';
 import Notificication from './components/Notification';
 import Layout from './components/Layout';
 import Home from './components/Home';
+import Login from './components/login';
 import Messages from './components/Messages';
 
 const App = () => {
@@ -13,7 +14,8 @@ const App = () => {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Layout />}>
-              <Route index element={<Home />} />
+              <Route index element={<Login />} />
+              <Route path='user/home' element={<Home />} />
               <Route path='user/account' element={<Account />} />
               <Route path='user/notification' element={<Notificication />} />
               <Route path='user/messages' element={<Messages />} />

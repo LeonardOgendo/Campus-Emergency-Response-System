@@ -6,6 +6,7 @@ import Notificication from './components/Notification';
 import Layout from './components/Layout';
 import Home from './components/Home';
 import Login from './components/login';
+import Register from './components/Register';
 import Messages from './components/Messages';
 
 const App = () => {
@@ -14,7 +15,8 @@ const App = () => {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Layout />}>
-              <Route index element={<Login />} />
+              <Route index element={<Register />} />
+              <Route path='user/register' element={<Register />} />
               <Route path='user/home' element={<Home />} />
               <Route path='user/account' element={<Account />} />
               <Route path='user/notification' element={<Notificication />} />

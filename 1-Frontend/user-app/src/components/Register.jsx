@@ -34,6 +34,9 @@ export default function Register(){
                 </div>
   
                 <button className='btn btn-primary mb-4'>Register</button>
+                <p className="small fw-bold mt-2 pt-1 mb-2" >
+              Have have an account? <a href="#!" className="link-danger">Login</a>
+            </p>
               </div>
   
               <div className='col-md-10 col-lg-6 order-1 order-lg-2 d-flex align-items-center'>

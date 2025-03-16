@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Login(){
     return(
         <>
-          <div className="container login d-flex">
+          <div className="container-fluid login d-flex">
                 <div className="row">
                   <div className="col-md-6">
                     <img
@@ -19,7 +19,7 @@ export default function Login(){
                     </div>
 
 
-                    <input className="form-control mb-4" type="email" placeholder="Student ID / Staff ID" />
+                    <input className="form-control mb-4" type="text" placeholder="Student ID / Staff ID" />
                     <input className="form-control mb-4" type="password" placeholder="Password" />
 
                     <div className="d-flex justify-content-between mb-4">

@@ -1,5 +1,4 @@
-import '../styles.css';
-import Logo from '../assets/cers_logox2.png';
+import Logo from '../../assets/cers_logox2.png';
 import { Link } from "react-router-dom";
 
 export default function Navbar(){

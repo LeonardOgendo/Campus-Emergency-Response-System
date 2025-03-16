@@ -298,8 +298,19 @@
 }
 
 
-/* --Search Box-- */
+/*-- Search Box --*/
 
 input:focus {
     outline: none;
 }
+
+/*-- Authentication: Login --*/
+
+.login {
+    width: 80%;
+    margin-top: 100px;
+
+    & .login-header {
+      font-weight: 700;
+    }
+  }

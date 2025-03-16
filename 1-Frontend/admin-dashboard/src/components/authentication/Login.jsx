@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Login(){
     return(
         <>
-          <div className="container-fluid p-3 my-5 h-custom">
+          <div className="container-fluid p-3 login">
                 <div className="row">
                   <div className="col-md-6">
                     <img
@@ -15,11 +15,11 @@ export default function Login(){
 
                   <div className="col-md-6">
                     <div className="d-flex flex-row align-items-center justify-content-center">
-                      <h5 className="lead fw-normal mb-3 me-3 link-danger"> <span style={{fontWeight:700}}>LOGIN</span></h5>
+                      <h5 className="mb-4 me-3 text-primary login-header">LOGIN</h5>
                     </div>
 
 
-                    <input className="form-control mb-4" type="email" placeholder="Student ID / Staff ID" />
+                    <input className="form-control mb-4" type="email" placeholder="Email Address" />
                     <input className="form-control mb-4" type="password" placeholder="Password" />
 
                     <div className="d-flex justify-content-between mb-4">
@@ -27,13 +27,13 @@ export default function Login(){
                         <input type="checkbox" id="rememberMe" />
                         <label htmlFor="rememberMe" className="ms-2">Remember me</label>
                       </div>
-                      <a href="#" className="link-danger" >Forgot password?</a>
+                      <a href="#" className="text-muted text-decoration-none" >Forgot password?</a>
                     </div>
 
                     <div className="text-center text-md-start mt-4 pt-2 ">
-                      <button className="btn btn-danger px-5 " style={{width:"80%", marginLeft:"60px" }}>Login</button>
+                      <button className="btn btn-primary px-5 mb-3" style={{width:"100%" }}>Login</button>
                       <p className="small fw-bold mt-2 pt-1 mb-2" >
-                        Don't have an account? <a href="#!" className="link-danger"><Link to="signup/">Register</Link></a>
+                        Don't have an account? <a href="#" className="link-danger"><Link to="signup/">Register</Link></a>
                       </p>
                     </div>
                   </div>

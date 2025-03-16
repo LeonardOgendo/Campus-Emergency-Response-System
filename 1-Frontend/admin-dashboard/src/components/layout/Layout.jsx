@@ -1,5 +1,3 @@
-import '../styles.css';
-import Dashboard from './Dashboard';
 import { Outlet } from 'react-router-dom';
 import SideNav from './SideNav';
 import TopNav from './TopNav';

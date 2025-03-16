@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';  
-import Logo from '../assets/cers_logox2.png';
+import Logo from '../../assets/cers_logox2.png';
 
 const SideNav = () => {
     const [openDropdown, setOpenDropdown] = useState(null);

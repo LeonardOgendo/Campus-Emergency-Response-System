@@ -1,17 +1,21 @@
 import './App.css';
+import './styles.css';
+
 import {BrowserRouter, Routes, Route } from 'react-router-dom';
-import Dashboard from './components/Dashboard';
-import Layout from './components/Layout';
-import ActiveEmergencies from './components/ActiveEmergencies';
-import ResolvedEmergencies from './components/ResolvedEmergencies';
-import ViewResponders from './components/ViewResponders';
-import AssignResponders from './components/AssignResponders';
-import ApproveAccounts from './components/ApproveAccounts';
-import RemoveAccounts from './components/RemoveAccounts';
-import FlaggedAreas from './components/FlaggedAreas';
-import FlagArea from './components/FlagArea';
-import Notifications from './components/Notifications';
-import Messages from './components/Messages';
+import Login from './components/authentication/Login';
+import Signup from './components/authentication/Signup';
+import Dashboard from './components/pages/Dashboard';
+import Layout from './components/layout/Layout';
+import ActiveEmergencies from './components/pages/ActiveEmergencies';
+import ResolvedEmergencies from './components/pages/ResolvedEmergencies';
+import ViewResponders from './components/pages/ViewResponders';
+import AssignResponders from './components/pages/AssignResponders';
+import ApproveAccounts from './components/pages/ApproveAccounts';
+import RemoveAccounts from './components/pages/RemoveAccounts';
+import FlaggedAreas from './components/pages/FlaggedAreas';
+import FlagArea from './components/pages/FlagArea';
+import Notifications from './components/pages/Notifications';
+import Messages from './components/pages/Messages';
 
 const App = () => {
 
@@ -19,7 +23,12 @@ const App = () => {
     return(
        <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Layout />}>
+                {/* -- Public Routes --*/}
+                <Route path="/" element={<Login />} />
+                <Route path="signup" element={<Signup />} />
+
+                {/*-- Protected Routes --*/}
+                <Route path="/admin" element={<Layout />}>
                     <Route index element={<Dashboard />} />
                     <Route path="emergencies/active" element={<ActiveEmergencies />} />
                     <Route path="emergencies/resolved" element={<ResolvedEmergencies />} />

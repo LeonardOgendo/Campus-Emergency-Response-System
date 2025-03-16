@@ -1,4 +1,3 @@
-import '../styles.css';
 
 const Dashboard = () => {
     console.log("Dashbaord loaded")

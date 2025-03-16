@@ -1,5 +1,5 @@
-import Search from "./Search";
-import UserIcon from '../assets/logo_try.jpg';
+import Search from "../ui/Search";
+import UserIcon from '../../assets/logo_try.jpg';
 
 
 const TopNav = () => {

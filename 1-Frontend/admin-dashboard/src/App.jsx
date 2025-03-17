@@ -36,10 +36,10 @@ const App = () => {
                     <Route path="responders/assign" element={<AssignResponders />} />
                     <Route path="users/approve" element={<ApproveAccounts />} />
                     <Route path="users/remove" element={<RemoveAccounts />} />
-                    <Route path="admin/flagged-areas" element={<FlaggedAreas />} />
-                    <Route path="admin/flag-area" element={<FlagArea />} />
-                    <Route path="admin/notifications" element={<Notifications />} />
-                    <Route path="admin/messages" element={<Messages />} />
+                    <Route path="flagged-areas" element={<FlaggedAreas />} />
+                    <Route path="flag-area" element={<FlagArea />} />
+                    <Route path="notifications/view" element={<Notifications />} />
+                    <Route path="messages" element={<Messages />} />
                 </Route>
             </Routes>
        </BrowserRouter>

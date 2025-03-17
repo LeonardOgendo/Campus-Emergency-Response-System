@@ -31,7 +31,7 @@ export default function Login(){
                     </div>
 
                     <div className="text-center text-md-start mt-4 pt-2 ">
-                      <button className="btn btn-primary px-5 mb-3" style={{width:"100%" }}>Login</button>
+                      <Link to="/admin"><button className="btn btn-primary px-5 mb-3" style={{width:"100%" }}>Login</button></Link>
                       <p className="small fw-bold mt-2 pt-1 mb-2" >
                         Don't have an account? <a href="#" className="link-danger"><Link to="signup/">Register</Link></a>
                       </p>

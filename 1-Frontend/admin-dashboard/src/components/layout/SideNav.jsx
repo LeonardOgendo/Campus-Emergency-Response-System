@@ -18,14 +18,14 @@ const SideNav = () => {
 
             <div className='side-nav'>
                 <ul>
-                    <li className='li-block main-links'><i className='fa fa-windows ico'></i><Link className='text-decoration-none text-dark' to="/">Dashboard</Link></li>
+                    <li className='li-block main-links'><i className='fa fa-windows ico'></i><Link className='text-decoration-none text-dark' to="/admin">Dashboard</Link></li>
                     <li className='main-links' onClick={() => toggleDropdown("emergencies")}>
                         <i className='fa fa-ambulance ico'></i>Emergencies <i className='fa fa-chevron-right ico-more'></i>
 
                         {openDropdown === "emergencies" && (
                             <ul className='dropdowns mt-2'>
-                                <li><Link to="/emergencies/active" className='text-decoration-none'>Active Emergencies</Link></li>
-                                <li><Link to="/emergencies/resolved" className='text-decoration-none'>Resolved Emergencies</Link></li>
+                                <li><Link to="emergencies/active" className='text-decoration-none'>Active Emergencies</Link></li>
+                                <li><Link to="emergencies/resolved" className='text-decoration-none'>Resolved Emergencies</Link></li>
                             </ul>
                         )}
                     </li>
@@ -34,8 +34,8 @@ const SideNav = () => {
 
                         {openDropdown === "responders" && (
                             <ul className='dropdowns mt-2'>
-                                <li><Link to="/responders/view" className='text-decoration-none'>View Responders</Link></li>
-                                <li><Link to="/responders/assign" className='text-decoration-none'>Assign Responders</Link></li>
+                                <li><Link to="responders/view" className='text-decoration-none'>View Responders</Link></li>
+                                <li><Link to="responders/assign" className='text-decoration-none'>Assign Responders</Link></li>
                             </ul>
                         )}
                     </li>
@@ -44,8 +44,8 @@ const SideNav = () => {
                         
                         {openDropdown === "flagged-areas" && (
                             <ul className='dropdowns mt-2'>
-                                <li><Link to="/admin/flagged-areas" className='text-decoration-none'>View Flagged Areas</Link></li>
-                                <li><Link to="/admin/flag-area" className='text-decoration-none'>Flag Areas</Link></li>
+                                <li><Link to="flagged-areas" className='text-decoration-none'>View Flagged Areas</Link></li>
+                                <li><Link to="flag-area" className='text-decoration-none'>Flag Areas</Link></li>
                             </ul>
                         )}
                     </li>
@@ -60,11 +60,11 @@ const SideNav = () => {
                         )}
                     </li>
                     <li className='main-links' >
-                        <i className='fa fa-envelope ico'></i><Link className='text-decoration-none text-dark' to="/admin/messages">Messages</Link>
+                        <i className='fa fa-envelope ico'></i><Link className='text-decoration-none text-dark' to="messages">Messages</Link>
                         <span className="notification-count">4</span>
                     </li>
                     <li className='main-links'>
-                        <i className='fa fa-bell ico'></i><Link className='text-decoration-none text-dark' to="admin/notifications">Notifications</Link>
+                        <i className='fa fa-bell ico'></i><Link className='text-decoration-none text-dark' to="notifications/view">Notifications</Link>
                         <span className="notification-count">2</span>
                     </li>
                 </ul>

@@ -314,3 +314,17 @@ input:focus {
       font-weight: 700;
     }
   }
+
+/*-- Authentication: Sign Up --*/
+.custom-signup {
+    height: 80vh;
+    box-shadow: 0 0 12px 1px #eeeded;
+    border-radius: 10px;
+
+}
+.custom-signup-block {
+    overflow-y: auto;
+    max-height: calc(100% - 60px); 
+    width: 100%; 
+    padding: 0 20px;
+}

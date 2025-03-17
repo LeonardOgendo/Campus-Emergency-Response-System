@@ -76,3 +76,45 @@
         border: 1px solid #919191;
     }
 }
+
+/*-- Authentication: Login --*/
+
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+.login {
+  width: 80%;
+  margin-top: 100px;
+  
+  & .login-header {
+    font-weight: 700;
+  }
+}
+
+/*-- Authentication: Sign Up --*/
+.custom-signup {
+    height: 80vh;
+    box-shadow: 0 0 12px 1px #eeeded;
+    border-radius: 10px;
+
+}
+.custom-signup-block {
+    overflow-y: auto;
+    max-height: calc(100% - 60px); 
+    width: 100%; 
+    padding: 0 20px;
+}
+
+
+
+
+/*-- Responsiveness --*/
+@media (max-width: 450px) {
+  .h-custom {
+  height: 100%;
+  }
+}

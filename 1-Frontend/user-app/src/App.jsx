@@ -1,26 +1,35 @@
 import './App.css';
+import './styles.css';
+
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
-import Contact from './components/Contact';
-import Account from './components/Account';
-import Notificication from './components/Notification';
-import Layout from './components/Layout';
-import Home from './components/Home';
-import Messages from './components/Messages';
+import Contact from './components/pages/Contact';
+import Account from './components/pages/Account';
+import Notificication from './components/pages/Notification';
+import Layout from './components/layout/Layout';
+import Home from './components/pages/Home';
+import Login from './components/authentication/Login';
+import Register from './components/authentication/Register';
+import Messages from './components/pages/Messages';
 
 const App = () => {
     return(
         <div >
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Layout />}>
+            {/*-- Public Routes: Login and Register --*/}
+            <Route path="/" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+
+            {/*-- Protected Routes: Requires Authentication --*/}
+            <Route path="/user" element={<Layout />}>
               <Route index element={<Home />} />
-              <Route path='user/account' element={<Account />} />
-              <Route path='user/notification' element={<Notificication />} />
-              <Route path='user/messages' element={<Messages />} />
-              <Route path='user/contact' element={<Contact />} />
+              <Route path='account' element={<Account />} />
+              <Route path='notification' element={<Notificication />} />
+              <Route path='messages' element={<Messages />} />
+              <Route path='contact' element={<Contact />} />
             </Route>
           </Routes>
-          </BrowserRouter>
+        </BrowserRouter>
         </div>
     )
 }

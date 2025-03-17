@@ -31,9 +31,9 @@ export default function Login(){
                     </div>
 
                     <div className="text-center text-md-start mt-4 pt-2 ">
-                      <button className="btn custom-btn px-5 mb-3 btn-danger" style={{width: "100%"}}>Login</button>
+                      <Link to="user/" className="text-white text-decoration-none"><button className="btn custom-btn px-5 mb-3 btn-danger" style={{width: "100%"}}>Login</button></Link>
                       <p className="small fw-bold mt-2 pt-1 mb-2" >
-                        Don't have an account? <a href="#" className="link-danger"><Link to="register">Register</Link></a>
+                        Don't have an account? <Link to="register">Register</Link>
                       </p>
                     </div>
                   </div>

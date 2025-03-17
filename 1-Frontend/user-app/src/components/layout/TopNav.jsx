@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const TopNav = () => {
     return(
@@ -13,7 +14,7 @@ const TopNav = () => {
                 <i className="fa fa-bell"></i>
                 <span>3</span>
             </div>
-            <button className="ms-4 btn-custom">Logout</button>
+            <Link to="/"><button className="ms-4 btn-custom">Logout</button></Link>
             
 
         </div>

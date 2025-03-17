@@ -22,12 +22,11 @@ const App = () => {
 
             {/*-- Protected Routes: Requires Authentication --*/}
             <Route path="/user" element={<Layout />}>
-              <Route path='user/register' element={<Register />} />
-              <Route path='user/home' element={<Home />} />
-              <Route path='user/account' element={<Account />} />
-              <Route path='user/notification' element={<Notificication />} />
-              <Route path='user/messages' element={<Messages />} />
-              <Route path='user/contact' element={<Contact />} />
+              <Route index element={<Home />} />
+              <Route path='account' element={<Account />} />
+              <Route path='notification' element={<Notificication />} />
+              <Route path='messages' element={<Messages />} />
+              <Route path='contact' element={<Contact />} />
             </Route>
           </Routes>
         </BrowserRouter>

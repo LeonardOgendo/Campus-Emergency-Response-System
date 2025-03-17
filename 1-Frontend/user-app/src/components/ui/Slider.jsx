@@ -1,3 +1,6 @@
+import SliderOne from '../../assets/1.png';
+import SliderTwo from '../../assets/4.png';
+import SliderThree from '../../assets/3.png';
 
 export default function Slider(){
     return(
@@ -12,19 +15,19 @@ export default function Slider(){
             <div className="carousel-inner">
 
                 <div className="carousel-item active c-item">
-                    <img src="./src/assets/1.png" className="d-block w-100  c-image" alt="..."/>
+                    <img src={SliderOne} className="d-block w-100  c-image" alt="..."/>
                     <div className="carousel-caption top-0 mt-4 ">
                     </div>   
                 </div>
 
                 <div className="carousel-item c-item">
-                    <img src="./src/assets/4.png" className="d-block w-100 c-image" alt="..."/>
+                    <img src={SliderTwo} className="d-block w-100 c-image" alt="..."/>
                     <div className="carousel-caption top-0 mt-4  ">
                     </div> 
                 </div>
 
                 <div className="carousel-item  c-item">
-                    <img src="./src/assets/3.png" className="d-block w-100 c-image" alt="..."/>
+                    <img src={SliderThree} className="d-block w-100 c-image" alt="..."/>
                     <div className="carousel-caption top-0 mt-4  ">
                     </div> 
                 </div>

@@ -11,6 +11,7 @@ export default function Content() {
                 
                 <div className='box-1'>
                     <div onClick={() => navigate('emergency/report')} className='p-3 rounded'>
+                    <div onClick={() => navigate('emergency/report')} className='p-3 rounded'>
                         <p className='fw-bold'>Report Emergency</p>
                     </div>
                     <div className='p-3 rounded'>

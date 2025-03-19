@@ -1,6 +1,6 @@
-export default function Report() {
+export default function EmergencyReport() {
     return (
-      <div className="container-fluid login d-flex">
+      <div className="container-fluid d-flex border rounded pt-4 pe-4 pb-4 mt-2 bg-white ">
         <div className="row">
           <div className="col-md-6">
             <img
@@ -12,7 +12,7 @@ export default function Report() {
   
           <div className="col-md-6">
             <div className="d-flex flex-row align-items-center justify-content-center">
-              <h5 className="fs-4 mb-4 me-3 text-danger login-header">Report Emergency</h5>
+              <h5 className="fs-4 mb-4 me-3 text-danger fw-bold">Report Emergency</h5>
             </div>
   
             <select className="form-control mb-4">

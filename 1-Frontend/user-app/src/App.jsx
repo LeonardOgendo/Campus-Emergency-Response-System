@@ -10,7 +10,7 @@ import Home from './components/pages/Home';
 import Login from './components/authentication/Login';
 import Register from './components/authentication/Register';
 import Messages from './components/pages/Messages';
-import Report from './components/pages/Report';
+import EmergencyReport from './components/pages/EmergencyReport';
 
 const App = () => {
     return(
@@ -25,10 +25,10 @@ const App = () => {
             <Route path="/user" element={<Layout />}>
               <Route index element={<Home />} />
               <Route path='account' element={<Account />} />
-              <Route path='report' element={<Report />} />
               <Route path='notification' element={<Notificication />} />
               <Route path='messages' element={<Messages />} />
               <Route path='contact' element={<Contact />} />
+              <Route path='emergency/report' element={<EmergencyReport />} />
             </Route>
           </Routes>
         </BrowserRouter>

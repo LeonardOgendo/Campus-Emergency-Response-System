@@ -1,11 +1,15 @@
+import { useNavigate } from "react-router-dom";
 
 export default function Content(){
+    
+    const navigate = useNavigate()
+    
     return(
         <>
             <div className="dash-container">
                 
                 <div className='box-1'>
-                    <div className='p-3 rounded'>
+                    <div onClick={() => navigate('emergency/report')} className='p-3 rounded'>
                         <p className='fw-bold'>Report Emergency</p>
                     </div>
                     <div className='p-3 rounded'>

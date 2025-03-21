@@ -35,7 +35,7 @@
 }
 .search-bar {
     margin-top: 2px;
-    margin-right: 362px;
+    margin-right: auto;
     border: 1px solid #f2f2f2;
     height: 2.25rem;
     border-radius: 5px;
@@ -50,6 +50,7 @@
 .icon-container {
     margin-right: 25px;
     position: relative;
+    margin-top: 10px;
 
     & span {
         position: absolute;
@@ -64,6 +65,46 @@
 
     }
 }
+
+.profile-container {
+    position: relative;
+
+    & .user-account{
+        display: flex;
+    
+        & .profile-box {
+           padding: 10px 18px;
+           background: blue;
+           border-radius: 50%;
+           color: #fff;
+           font-weight: bold;
+        }
+    
+        & span {
+            margin-left: 2px;
+        }
+    
+        & i {
+            font-size: 14px;
+        }
+    }
+
+    & .profile-dropdown {
+        position: absolute;
+        background: #fff;
+        z-index: 1000;
+        padding-right: 35px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        font-size: 0.9rem;
+
+        & ul li {
+            list-style: none;
+            margin-bottom: 5px;
+        }
+    }
+}
+
 
 .c-item{
     height: 350px;

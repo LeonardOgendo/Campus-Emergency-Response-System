@@ -23,9 +23,6 @@ export default function Navbar(){
                         <Link to="messages" className='nav-link'>Messages <span className="main-badges">5</span></Link>
                     </li>
                     <li>
-                        <Link to="account" className="nav-link">Account</Link>
-                    </li>
-                    <li>
                         <Link to="contact" className="nav-link">Contact Us</Link>
                     </li>
                 </ul>

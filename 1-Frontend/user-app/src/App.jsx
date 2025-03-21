@@ -1,7 +1,8 @@
 import './App.css';
 import './styles.css';
+import { ToastContainer } from 'react-toastify';
 
-import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
+import { Routes, Route, Link} from 'react-router-dom';
 import Contact from './components/pages/Contact';
 import Account from './components/pages/Account';
 import Notificication from './components/pages/Notification';
@@ -12,10 +13,11 @@ import Register from './components/authentication/Register';
 import Messages from './components/pages/Messages';
 import EmergencyReport from './components/pages/EmergencyReport';
 
+
 const App = () => {
     return(
-        <div >
-        <BrowserRouter>
+        <div>
+          <ToastContainer position='top-right' autoClose={3500} hideProgressBar={true}  />
           <Routes>
             {/*-- Public Routes: Login and Register --*/}
             <Route path="/" element={<Login />} />
@@ -31,7 +33,6 @@ const App = () => {
               <Route path='emergency/report' element={<EmergencyReport />} />
             </Route>
           </Routes>
-        </BrowserRouter>
         </div>
     )
 }

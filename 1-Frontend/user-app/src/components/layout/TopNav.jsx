@@ -30,10 +30,12 @@ const TopNav = () => {
             </div>
             <div className="profile-container">
                 <div className="user-account ms-4 me-2" onClick={() => toggleDropdown("profile")}>
-                    <p className="profile-box me-1">F</p>
+                    <p className="profile-box me-1">
+                        {user && user.first_name ? user.first_name.charAt(0).toUpperCase() : "G"}
+                    </p>
                     <div className="mt-2">
                         <span className="me-2">Hi, {user ? user.first_name : "Guest" }</span>
-                        <i className="fa fa-chevron-right"></i>
+                        <i className={`fa ${dropdown === "profile" ? "fa-chevron-down" : "fa-chevron-right"}`}></i>
                     </div>
                 </div>
                 {dropdown === "profile" && 

@@ -73,11 +73,12 @@
         display: flex;
     
         & .profile-box {
-           padding: 10px 18px;
-           background: blue;
+           padding: 7px 15px;
+           background:#160F29;
            border-radius: 50%;
            color: #fff;
            font-weight: bold;
+           border: 2px solid #ee6c62;
         }
     
         & span {

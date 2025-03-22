@@ -1,24 +1,23 @@
 from django.db import models
-from django.contrib.auth import get_user_model
 
-User = get_user_model()
-
-class Emergency(models.Model):
-    STATUS_CHOICES = [
-        ('pending', 'Pending'),
-        ('responding', 'Responding'),
-        ('resolved', 'Resolved'),
+class EmergencyReport(models.Model):
+    EMERGENCY_TYPES = [
+        ('health', 'Health'),
+        ('security', 'Security'),
+        ('fire', 'Fire'),
+    ]
+    SEVERITY_LEVELS = [
+        ('critical', 'Critical'),
+        ('high', 'High'),
+        ('low', 'Low'),
     ]
 
-    reporter = models.ForeignKey(User, on_delete=models.CASCADE, related_name="emergencies")
-    title = models.CharField(max_length=255)
+    emergency_type = models.CharField(max_length=50, choices=EMERGENCY_TYPES)
     description = models.TextField()
-    location = models.CharField(max_length=255)
-    latitude = models.FloatField()
-    longitude = models.FloatField()
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending')
+    severity = models.CharField(max_length=50, choices=SEVERITY_LEVELS)
+    latitude = models.FloatField(null=True, blank=True)
+    longitude = models.FloatField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"{self.title} - {self.status}"
+        return f"{self.emergency_type} - {self.severity}"

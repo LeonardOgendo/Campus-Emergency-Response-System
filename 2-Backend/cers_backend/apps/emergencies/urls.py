@@ -1,8 +1,6 @@
 from django.urls import path
-from .views import ReportEmergencyView, EmergencyListView, UpdateEmergencyStatusView
+from .views import submit_report
 
 urlpatterns = [
-    path('emergency/report/', ReportEmergencyView.as_view(), name='report-emergency'),
-    path('emergency/list/', EmergencyListView.as_view(), name='list-emergencies'),
-    path('<int:pk>/update/', UpdateEmergencyStatusView.as_view(), name='update-emergency-status'),
+    path('api/report/', submit_report, name='submit-report'),
 ]

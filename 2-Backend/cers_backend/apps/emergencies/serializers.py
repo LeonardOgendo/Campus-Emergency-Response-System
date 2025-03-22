@@ -1,8 +1,7 @@
 from rest_framework import serializers
-from .models import Emergency
+from .models import EmergencyReport
 
-class EmergencySerializer(serializers.ModelSerializer):
+class EmergencyReportSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Emergency
+        model = EmergencyReport
         fields = '__all__'
-        read_only_fields = ['reporter', 'status']

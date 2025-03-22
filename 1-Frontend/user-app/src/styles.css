@@ -33,10 +33,24 @@
     font-size: 1rem;
     padding: 2px 10px;
 }
+.search-bar {
+    margin-top: 2px;
+    margin-right: auto;
+    border: 1px solid #f2f2f2;
+    height: 2.25rem;
+    border-radius: 5px;
+    padding: 3px 10px;
+    background: #f5f5f5;
+}
+
+#search-input:focus {
+    outline: none;
+}
 
 .icon-container {
     margin-right: 25px;
     position: relative;
+    margin-top: 10px;
 
     & span {
         position: absolute;
@@ -51,6 +65,47 @@
 
     }
 }
+
+.profile-container {
+    position: relative;
+
+    & .user-account{
+        display: flex;
+    
+        & .profile-box {
+           padding: 7px 15px;
+           background:#160F29;
+           border-radius: 50%;
+           color: #fff;
+           font-weight: bold;
+           border: 2px solid #ee6c62;
+        }
+    
+        & span {
+            margin-left: 2px;
+        }
+    
+        & i {
+            font-size: 14px;
+        }
+    }
+
+    & .profile-dropdown {
+        position: absolute;
+        background: #fff;
+        z-index: 1000;
+        padding-right: 35px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        font-size: 0.9rem;
+
+        & ul li {
+            list-style: none;
+            margin-bottom: 5px;
+        }
+    }
+}
+
 
 .c-item{
     height: 350px;

@@ -3,17 +3,12 @@ import { useContext, useState } from "react";
 import UsersAPI from "../../api/users";
 import { AuthContext } from "../../context/AuthContext";
 
-
 const Login = () => {
   const { login } = useContext(AuthContext);
-
-  const [formData, setFormData] = useState({
-    identifier: "",
-    password: ""
-  });
-
+  const [formData, setFormData] = useState({ identifier: "", password: "" });
   const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState("");
+
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -28,11 +23,38 @@ const Login = () => {
     });
   };
 
- 
+  const validateForm = () => {
+    let newErrors = {};
+    
+    if (!formData.identifier.trim()) {
+      newErrors.identifier = "Student ID / Staff ID is required";
+    } else {
+      const identifierRegex = /^(STU|SID)\/\d{5}$/;
+      if (!identifierRegex.test(formData.identifier)) {
+        newErrors.identifier = "Invalid format. Use STU/XXXXX or SID/XXXXX";
+      }
+    }
+
+    if (!formData.password.trim()) {
+      newErrors.password = "Password is required";
+    } else if (formData.password.length < 8) {
+      newErrors.password = "Password must be at least 8 characters";
+    }
+
+    return newErrors;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors({});
     setSuccessMessage("");
+
+    // Client-side validation
+    const validationErrors = validateForm();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
 
     try {
       const response = await UsersAPI.post("/login/", formData);
@@ -41,23 +63,21 @@ const Login = () => {
       localStorage.setItem("access_token", response.data.access);
       localStorage.setItem("refresh_token", response.data.refresh);
 
-      // Update context
-      login(response.data.user)
+      // updating context
+      login(response.data.user);
 
       setSuccessMessage("Login successful! Redirecting ...");
-      setTimeout(() => {
-        navigate('/user');
-      }, 1500)
-
+      setTimeout(() => navigate("/user"), 1500);
     } catch (error) {
       if (error.response) {
         setErrors(error.response.data);
+      } else {
+        setErrors({ general: "An unexpected error occurred. Please try again." });
       }
     }
   };
 
-
-  return(
+  return (
     <div className="container-fluid login d-flex">
       <div className="row">
         <div className="col-md-6">
@@ -74,46 +94,58 @@ const Login = () => {
           </div>
 
           {successMessage && <p className="text-success">{successMessage}</p>}
+          {errors.general && <p className="text-danger">{errors.general}</p>}
 
           <form onSubmit={handleSubmit}>
-            <input 
-              className="form-control mb-4" 
-              type="text"
-              name="identifier"
-              placeholder="Student ID / Staff ID"
-              value={formData.identifier}
-              onChange={handleChange}
-            />
-            {errors.identifier && <p className="text-danger">{errors.identifier}</p>}
-            
-            <input 
-              className="form-control mb-4" 
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={formData.password}
-              onChange={handleChange}
-            />
-            {errors.password && <p className="text-danger">{errors.password}</p>}
+            <div className="mb-4">
+              <input
+                className={`form-control mb-1 ${errors.identifier ? "is-invalid" : ""}`}
+                type="text"
+                name="identifier"
+                placeholder="Student ID / Staff ID"
+                value={formData.identifier}
+                onChange={handleChange}
+              />
+              {errors.identifier && <div className="invalid-feedback">{errors.identifier}</div>}
+            </div>
+
+            <div className="mb-4">
+              <input
+                className={`form-control mb-1 ${errors.password ? "is-invalid" : ""}`}
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={formData.password}
+                onChange={handleChange}
+              />
+              {errors.password && <div className="invalid-feedback">{errors.password}</div>}
+            </div>
 
             <div className="d-flex justify-content-between mb-4">
               <div>
                 <input type="checkbox" id="rememberMe" />
-                <label htmlFor="rememberMe" className="ms-2">Remember me</label>
+                <label htmlFor="rememberMe" className="ms-2">
+                  Remember me
+                </label>
               </div>
-              <a href="#" className="link-primary text-decoration-none" >Forgot password?</a>
+              <a href="#" className="link-primary text-decoration-none">
+                Forgot password?
+              </a>
             </div>
 
-            <div className="text-center text-md-start mt-4 pt-2 ">
-              <button type="submit" className="btn custom-btn px-5 mb-3 btn-danger" style={{width: "100%"}}>Login</button>             <p className="small fw-bold mt-2 pt-1 mb-2" >
-              Don't have an account? <Link to="register">Register</Link>
+            <div className="text-center text-md-start mt-4 pt-2">
+              <button type="submit" className="btn custom-btn px-5 mb-3 btn-danger" style={{ width: "100%" }}>
+                Login
+              </button>
+              <p className="small fw-bold mt-2 pt-1 mb-2">
+                Don't have an account? <Link to="register">Register</Link>
               </p>
             </div>
           </form>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

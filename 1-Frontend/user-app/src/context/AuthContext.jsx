@@ -10,7 +10,7 @@ const AuthProvider = ({children}) => {
     const [user, setUser] = useState(() => {
         // Load user data from local storage
         const savedUser = localStorage.getItem("user");
-        return savedUser ? JSON.parse(savedUser) : null
+        return savedUser ? JSON.parse(savedUser) : null;
     });
 
     const navigate = useNavigate();

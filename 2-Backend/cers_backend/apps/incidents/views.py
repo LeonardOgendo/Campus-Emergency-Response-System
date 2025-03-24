@@ -3,15 +3,11 @@ from .models import Incident
 from .serializers import IncidentSerializer
 
 class IncidentListCreateView(generics.ListCreateAPIView):
-    queryset = Incident.objects.all()
     serializer_class = IncidentSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        return Incident.objects.filter(user=self.request.user).order_by("-created_at")
 
     def perform_create(self, serializer):
-        serializer.save(reported_by=self.request.user)
-
-
-class IncidentDetailView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Incident.objects.all()
-    serializer_class = IncidentSerializer
-    permission_classes = [permissions.IsAuthenticated]
+        serializer.save(user=self.request.user)

@@ -1,24 +1,24 @@
 from rest_framework import serializers
 from django.contrib.auth import authenticate
-from .models import CustomUser
-
-from rest_framework import serializers
 from django.core.validators import RegexValidator
 from django.contrib.auth.password_validation import validate_password
-from .models import CustomUser  # Ensure you import your CustomUser model
+from .models import CustomUser
 
 
 class UserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(
-        write_only=True, 
-        min_length=8, 
+        write_only=True,
+        min_length=8,
         required=True,
         style={"input_type": "password"}  # Hides password input in forms/browsable API
     )
 
     identifier = serializers.CharField(
         required=True,
-        validators=[RegexValidator(regex=r'^[A-Za-z0-9-]+$', message="Invalid identifier format.")]
+        validators=[RegexValidator(
+            regex=r'^(STU|STAFF)/\d+$',
+            message="Invalid identifier format. Must be STU/XXXXX or STAFF/XXXXX."
+        )]
     )
 
     class Meta:
@@ -26,14 +26,13 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['id', 'identifier', 'first_name', 'last_name', 'email', 'role', 'password']
 
     def validate_email(self, value):
-        if CustomUser.objects.filter(email=value).exists():
+        if value and CustomUser.objects.filter(email=value).exists():
             raise serializers.ValidationError("A user with this email already exists.")
         return value
 
     def validate_password(self, value):
-        validate_password(value)  # Uses Django’s built-in password validators
+        validate_password(value)  # Uses Django's built-in password validators
         return value
-
 
     def create(self, validated_data):
         password = validated_data.pop("password")
@@ -49,7 +48,7 @@ class LoginSerializer(serializers.Serializer):
         user = authenticate(identifier=data['identifier'], password=data['password'])
         if not user:
             raise serializers.ValidationError('Invalid credentials, please try again')
-        
+
         if not user.is_active:
             raise serializers.ValidationError('Your account is inactive. Contact support.')
 

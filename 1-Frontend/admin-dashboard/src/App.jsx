@@ -1,7 +1,8 @@
 import './App.css';
 import './styles.css';
 
-import {BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import {Routes, Route } from 'react-router-dom';
 import Login from './components/authentication/Login';
 import Signup from './components/authentication/Signup';
 import Dashboard from './components/pages/Dashboard';
@@ -21,7 +22,9 @@ const App = () => {
 
     console.log("Layout loaded")
     return(
-       <BrowserRouter>
+        <div>
+            <ToastContainer position='top-right' autoClose={4000} hideProgressBar={true}  />
+            
             <Routes>
                 {/* -- Public Routes --*/}
                 <Route path="/" element={<Login />} />
@@ -42,7 +45,7 @@ const App = () => {
                     <Route path="messages" element={<Messages />} />
                 </Route>
             </Routes>
-       </BrowserRouter>
+        </div>
     )
 }
 

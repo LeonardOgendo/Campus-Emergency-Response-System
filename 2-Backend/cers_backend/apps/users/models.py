@@ -21,6 +21,12 @@ class CustomUserManager(BaseUserManager):
         user.set_password(password)  # Hash password
         user.save(using=self._db)
         return user
+    
+    def create_superuser(self, identifier, first_name, last_name, email=None, password=None, **extra_fields):
+        extra_fields.setdefault("is_staff", True)
+        extra_fields.setdefault("is_superuser", True)
+
+        return self.create_user(identifier, first_name, last_name, email, password, role="admin", **extra_fields)
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     
@@ -37,10 +43,12 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     role = models.CharField(max_length=10, choices=ROLE_CHOICES, default='user')
 
     is_active = models.BooleanField(default=True)  # Active status (Django requirement)
+    is_staff = models.BooleanField(default=False) # Required for admin access
+    is_superuser = models.BooleanField(default=False) # Required for admin access
 
     # related_name to prevent conflicts
-    groups = models.ManyToManyField(Group, related_name="customuser_set", blank=True)
-    user_permissions = models.ManyToManyField(Permission, related_name="customuser_set", blank=True)    
+    groups = models.ManyToManyField(Group, blank=True, related_name="customuser_set")
+    user_permissions = models.ManyToManyField(Permission, blank=True, related_name="customuser_permissions_set") 
 
     objects = CustomUserManager()
 

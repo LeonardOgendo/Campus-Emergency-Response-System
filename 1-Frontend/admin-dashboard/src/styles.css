@@ -76,8 +76,8 @@
 
         & .search-bar {
             margin-top: 15px;
-            margin-right: 305px;
             border: 1px solid #f2f2f2;
+            margin-right: 305px;
             height: 2.25rem;
             border-radius: 5px;
             padding: 3px 10px;
@@ -110,8 +110,29 @@
 
         }
 
-        .user {
-            display: flex;  
+        & .profile-box {
+            position: relative;
+
+            & .user {
+                display: flex; 
+            }
+
+            & .profile-dropdown {
+                position: absolute;
+                background: #fff;
+                margin-top: 10px;
+                margin-left: 32px;
+                padding-right: 30px;
+                z-index: 1000;
+                border-bottom-right-radius: 5px;
+                border-bottom-left-radius: 5px;
+
+                & ul li {
+                    list-style: none;
+                    font-size: 0.95rem;
+                    margin-top: 5px;
+                }
+            }
         }
     }
 

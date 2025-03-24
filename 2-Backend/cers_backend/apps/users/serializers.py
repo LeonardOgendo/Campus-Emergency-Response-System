@@ -18,7 +18,6 @@ class UserSerializer(serializers.ModelSerializer):
 
     identifier = serializers.CharField(
         required=True,
-        validators=[RegexValidator(regex=r'^[A-Za-z0-9-]+$', message="Invalid identifier format.")]
     )
 
     class Meta:

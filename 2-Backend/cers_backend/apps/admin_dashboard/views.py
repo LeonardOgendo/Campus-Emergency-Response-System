@@ -24,13 +24,13 @@ class EmergencyListView(generics.ListAPIView):
     serializer_class = EmergencySerializer
     permission_classes = [permissions.IsAdminUser]
 
-# View a single emergency
+# View a single emergencies
 class EmergencyDetailView(generics.RetrieveAPIView):
     queryset = Emergency.objects.all()
     serializer_class = EmergencySerializer
     permission_classes = [permissions.IsAdminUser]
 
-# Assign responder to an emergency
+# Assign responder to an emergencies
 class AssignResponderView(APIView):
     permission_classes = [permissions.IsAdminUser]
 
@@ -50,7 +50,7 @@ class AssignResponderView(APIView):
         except User.DoesNotExist:
             return Response({"error": "Responder not found"}, status=404)
 
-# Update emergency status
+# Update emergencies status
 class UpdateEmergencyStatusView(APIView):
     permission_classes = [permissions.IsAdminUser]
 

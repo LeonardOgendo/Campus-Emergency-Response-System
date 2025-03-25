@@ -6,8 +6,8 @@ from .views import (
 
 urlpatterns = [
     path('', AdminDashboardView.as_view(), name='admin-dashboard'),
-    path('emergencies/', EmergencyListView.as_view(), name='emergency-list'),
-    path('emergencies/<int:pk>/', EmergencyDetailView.as_view(), name='emergency-detail'),
+    path('emergencies/', EmergencyListView.as_view(), name='emergencies-list'),
+    path('emergencies/<int:pk>/', EmergencyDetailView.as_view(), name='emergencies-detail'),
     path('emergencies/<int:emergency_id>/assign/', AssignResponderView.as_view(), name='assign-responder'),
     path('emergencies/<int:emergency_id>/status/', UpdateEmergencyStatusView.as_view(), name='update-status'),
 ]

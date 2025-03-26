@@ -1,20 +1,21 @@
 from django.db import models
 from django.conf import settings
+from apps.emergencies.models import Emergency
 
 class Incident(models.Model):
-    STATUS_CHOICES = [
-        ('pending', 'Pending'),
-        ('in_progress', 'In Progress'),
-        ('resolved', 'Resolved'),
-    ]
-
-    title = models.CharField(max_length=255)
-    description = models.TextField()
-    location = models.CharField(max_length=255)
-    reported_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending')
-    created_at = models.DateTimeField(auto_now_add=True)
+    emergency = models.OneToOneField(
+        Emergency,
+        on_delete=models.CASCADE,
+        related_name='incident'
+    )
+    is_verified = models.BooleanField(default=False)
+    responders = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        related_name='responded_incidents',
+        blank=True
+    )
+    notes = models.TextField(blank=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"{self.title} - {self.status}"
+        return f"Incident for {self.emergency}"

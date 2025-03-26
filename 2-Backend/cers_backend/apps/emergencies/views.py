@@ -1,25 +1,44 @@
-from rest_framework import status
+from rest_framework import generics, status
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
-from .models import EmergencyReport
-from .serializers import EmergencyReportSerializer
-import json
+from .models import Emergency  # Only import Emergency from current app
+from apps.incidents.models import Incident  # Import Incident from incidents app
+from .serializers import EmergencySerializer
+from rest_framework.permissions import IsAuthenticated
 
-@api_view(['POST'])
-def submit_report(request):
-    data = request.data.copy()
 
-    # Extract location from JSON string
-    if 'location' in data:
-        try:
-            location = json.loads(data['location'])
-            data['latitude'] = location.get('latitude')
-            data['longitude'] = location.get('longitude')
-        except json.JSONDecodeError:
-            return Response({"error": "Invalid location format"}, status=status.HTTP_400_BAD_REQUEST)
+class ReportEmergencyView(generics.CreateAPIView):
+    serializer_class = EmergencySerializer
+    permission_classes = [IsAuthenticated]
 
-    serializer = EmergencyReportSerializer(data=data)
-    if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+
+class EmergencyListView(generics.ListAPIView):
+    serializer_class = EmergencySerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return Emergency.objects.filter(user=self.request.user)
+
+
+class LiveLocationView(generics.GenericAPIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        latitude = request.data.get('latitude')
+        longitude = request.data.get('longitude')
+
+        if not latitude or not longitude:
+            return Response(
+                {'error': 'Both latitude and longitude are required'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        return Response({
+            'status': 'Location received',
+            'coordinates': {
+                'latitude': latitude,
+                'longitude': longitude
+            }
+        })

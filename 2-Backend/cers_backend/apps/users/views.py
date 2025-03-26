@@ -37,6 +37,7 @@ class LoginUserView(APIView):
                     "first_name": user.first_name,
                     "last_name": user.last_name,
                     "email": user.email,
+                    "role": user.role,
                 },
             })
         return Response({"error": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)

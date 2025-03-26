@@ -17,6 +17,7 @@ import FlaggedAreas from './components/pages/FlaggedAreas';
 import FlagArea from './components/pages/FlagArea';
 import Notifications from './components/pages/Notifications';
 import Messages from './components/pages/Messages';
+import ProtectedRoute from './components/authentication/ProtectedRoute';
 
 const App = () => {
 
@@ -31,18 +32,20 @@ const App = () => {
                 <Route path="signup" element={<Signup />} />
 
                 {/*-- Protected Routes --*/}
-                <Route path="/admin" element={<Layout />}>
-                    <Route index element={<Dashboard />} />
-                    <Route path="emergencies/active" element={<ActiveEmergencies />} />
-                    <Route path="emergencies/resolved" element={<ResolvedEmergencies />} />
-                    <Route path="responders/view" element={<ViewResponders />} />
-                    <Route path="responders/assign" element={<AssignResponders />} />
-                    <Route path="users/approve" element={<ApproveAccounts />} />
-                    <Route path="users/remove" element={<RemoveAccounts />} />
-                    <Route path="flagged-areas" element={<FlaggedAreas />} />
-                    <Route path="flag-area" element={<FlagArea />} />
-                    <Route path="notifications/view" element={<Notifications />} />
-                    <Route path="messages" element={<Messages />} />
+                <Route element={<ProtectedRoute />}>
+                    <Route path="/admin" element={<Layout />}>
+                        <Route index element={<Dashboard />} />
+                        <Route path="emergencies/active" element={<ActiveEmergencies />} />
+                        <Route path="emergencies/resolved" element={<ResolvedEmergencies />} />
+                        <Route path="responders/view" element={<ViewResponders />} />
+                        <Route path="responders/assign" element={<AssignResponders />} />
+                        <Route path="users/approve" element={<ApproveAccounts />} />
+                        <Route path="users/remove" element={<RemoveAccounts />} />
+                        <Route path="flagged-areas" element={<FlaggedAreas />} />
+                        <Route path="flag-area" element={<FlagArea />} />
+                        <Route path="notifications/view" element={<Notifications />} />
+                        <Route path="messages" element={<Messages />} />
+                    </Route>
                 </Route>
             </Routes>
         </div>

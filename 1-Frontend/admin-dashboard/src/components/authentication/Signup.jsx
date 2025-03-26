@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { registerUser } from "../../api/users";
+import { toast } from "react-toastify";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -83,6 +84,7 @@ const Signup = () => {
         }));
       } else {
         setSuccess("Account created successfully");
+        toast.success("Account created succesfully! You can now log in.")
         setTimeout(() => navigate("/"), 2000);
       }
     } catch (error) {
@@ -204,7 +206,7 @@ const Signup = () => {
               </form>
 
               <p className="small fw-bold mt-2 pt-1 mb-2">
-                Already have an account? <Link to="/login" className="text-primary text-decoration-none">Login</Link>
+                Already have an account? <Link to="/" className="text-primary text-decoration-none">Login</Link>
               </p>
             </div>
           </div>

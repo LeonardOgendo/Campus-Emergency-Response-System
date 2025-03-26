@@ -213,6 +213,7 @@
             background: linear-gradient(135deg, #F59F00, #FFC65C);
             color: #fff;
         }
+
         & #t-emeg::before {
             content: '';
             position: absolute;
@@ -274,6 +275,70 @@
     }
 }
 
+/*-- Conditional Responder Analytics Cards--*/
+
+.responder {
+
+    & div {
+        flex-basis: 32%;
+        margin: 0 auto;
+        height: 300px;
+    }
+    & .custom-box-1 {
+        position: relative;
+        background: linear-gradient(135deg, #4a00e0, #8e2de2);
+        color: #fff;
+    }
+    
+    & .custom-box-1::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('/images/upgraph.png') no-repeat center;
+        background-size: cover;
+        opacity: 0.2;
+    }
+
+    & .custom-box-2 {
+        position: relative;
+        background: linear-gradient(135deg, #A4508B, #5F0A87);
+        color: #fff;
+    }
+    & .custom-box-2::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('/images/downgraph.png') no-repeat center;
+        background-size: cover;
+        opacity: 0.1;
+    }
+
+    & .custom-box-3 {
+        color: #fff;
+        position: relative;
+        background: linear-gradient(135deg, #379634, #777);
+        transition: box-shadow 0.3s ease-in-out;
+    }
+
+    & .custom-box-3::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('/images/analog_s.png') no-repeat center;
+        background-size: cover;
+        opacity: 0.2;
+    }
+}
+
 
 .occupied-areas{
     display: flex;
@@ -282,11 +347,12 @@
         flex-basis: 24%;
         margin: 0 auto;
         border: 1px solid #777;
-        background: #444;
+        background:  #736372;
+
     }
     & .name-label {
         font-weight: bolder;
-        color: #379634;
+        color: #FFA07A;
         font-size: 1.05rem;
         display: inline-block;
         margin-bottom: 5px;

@@ -47,7 +47,7 @@ const AuthProvider = ({children}) => {
             toast.success("Logout successful");
             setTimeout(() => {
                 navigate('/')
-            }, 1000)
+            }, 500)
 
         } catch (error) {
             console.error("Logout failed", error);

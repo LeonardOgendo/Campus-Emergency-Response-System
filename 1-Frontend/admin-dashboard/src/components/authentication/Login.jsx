@@ -56,12 +56,12 @@ export default function Login() {
       const response = await loginUser(formData);
 
       if (response.error) {
-        setErrors({ general: response.error });
+        setErrors({ general: response.error.identifier?.[0] || response.error.password?.[0] || response.error.non_field_errors?.[0] || "Invalid credentials. Please try again." });
         return;
       }
 
       if (!response.access || !response.refresh) {
-        setErrors({ general: "Invalid response from server. Please try again"});
+        setErrors({ general: "Invalid response from server. Please try again!"});
         return;
       }
      

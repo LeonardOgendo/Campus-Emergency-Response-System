@@ -1,2 +1,6 @@
-2-Backend/venv/
-2-Backend/cers_backend/db.sqlite3
+# Backend (Django)
+
+Backend/venv/
+Backend/cers_backend/db.sqlite3
+Backend/__pycache__/
+Backend/*.pyc

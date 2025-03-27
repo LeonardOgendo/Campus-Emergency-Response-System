@@ -1,13 +1,16 @@
-from django.shortcuts import render
-
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.generics import RetrieveUpdateAPIView
 from rest_framework_simplejwt.tokens import RefreshToken
-from .models import CustomUser
-from .serializers import UserSerializer, LoginSerializer
-
+from django.contrib.auth import update_session_auth_hash
+from .models import CustomUser, UserProfile
+from .serializers import (
+    UserSerializer, LoginSerializer,
+    ProfileSerializer, LocationSerializer,
+    PasswordChangeSerializer
+)
 
 
 class RegisterUserView(APIView):
@@ -17,8 +20,11 @@ class RegisterUserView(APIView):
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
             user = serializer.save()
+            # Create profile for new user
+            UserProfile.objects.create(user=user)
             return Response({"Message": "User registered successfully"}, status=status.HTTP_201_CREATED)
         return Response({"error": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+
 
 class LoginUserView(APIView):
     permission_classes = [AllowAny]
@@ -26,7 +32,7 @@ class LoginUserView(APIView):
     def post(self, request):
         serializer = LoginSerializer(data=request.data)
         if serializer.is_valid():
-            user = serializer.validated_data # `validate` method returns user object
+            user = serializer.validated_data
             refresh = RefreshToken.for_user(user)
             return Response({
                 "access": str(refresh.access_token),
@@ -51,12 +57,54 @@ class LogoutView(APIView):
             refresh_token = request.data.get("refresh_token")
             if not refresh_token:
                 return Response({"error": "Refresh token required"})
-            
-            # Blacklist the refresh token
+
             token = RefreshToken(refresh_token)
             token.blacklist()
-
             return Response({"message": "Logout successful"}, status.HTTP_200_OK)
-        
+
         except Exception as e:
             return Response({"error": "Invalid token"}, status=status.HTTP_400_BAD_REQUEST)
+
+
+class ProfileView(RetrieveUpdateAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = ProfileSerializer
+
+    def get_object(self):
+        profile, created = UserProfile.objects.get_or_create(user=self.request.user)
+        return profile
+
+
+class LocationUpdateView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def put(self, request):
+        profile = request.user.profile
+        serializer = LocationSerializer(profile, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class PasswordChangeView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        serializer = PasswordChangeSerializer(data=request.data)
+        if serializer.is_valid():
+            user = request.user
+            if not user.check_password(serializer.validated_data['old_password']):
+                return Response(
+                    {"old_password": ["Wrong password."]},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+
+            user.set_password(serializer.validated_data['new_password'])
+            user.save()
+            update_session_auth_hash(request, user)
+            return Response(
+                {"message": "Password updated successfully"},
+                status=status.HTTP_200_OK
+            )
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

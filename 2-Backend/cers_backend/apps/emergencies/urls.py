@@ -1,8 +1,12 @@
 from django.urls import path
-from .views import ReportEmergencyView, EmergencyListView, UpdateEmergencyStatusView
+from .views import (
+    ReportEmergencyView,
+    EmergencyListView,
+    LiveLocationView
+)
 
 urlpatterns = [
-    path('emergency/report/', ReportEmergencyView.as_view(), name='report-emergency'),
-    path('emergency/list/', EmergencyListView.as_view(), name='list-emergencies'),
-    path('<int:pk>/update/', UpdateEmergencyStatusView.as_view(), name='update-emergency-status'),
+    path('report/', ReportEmergencyView.as_view(), name='report-emergency'),
+    path('', EmergencyListView.as_view(), name='emergency-list'),
+    path('location/update/', LiveLocationView.as_view(), name='update-location'),
 ]

@@ -1,24 +1,48 @@
 from django.db import models
-from django.contrib.auth import get_user_model
-
-User = get_user_model()
+from django.conf import settings
 
 class Emergency(models.Model):
-    STATUS_CHOICES = [
-        ('pending', 'Pending'),
-        ('responding', 'Responding'),
-        ('resolved', 'Resolved'),
+    EMERGENCY_TYPES = [
+        ('health', 'Health Emergency'),
+        ('security', 'Security Emergency'),
+        ('fire', 'Fire Emergency'),
     ]
 
-    reporter = models.ForeignKey(User, on_delete=models.CASCADE, related_name="emergencies")
-    title = models.CharField(max_length=255)
+    SEVERITY_LEVELS = [
+        ('critical', 'Critical'),
+        ('high', 'High'),
+        ('low', 'Low'),
+    ]
+
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True
+    )
+    emergency_type = models.CharField(
+        max_length=20,
+        choices=EMERGENCY_TYPES,
+        default='health'  # Added default value
+    )
     description = models.TextField()
-    location = models.CharField(max_length=255)
+    severity = models.CharField(
+        max_length=20,
+        choices=SEVERITY_LEVELS,
+        default='high'  # Added default for consistency
+    )
     latitude = models.FloatField()
     longitude = models.FloatField()
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending')
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    status = models.CharField(
+        max_length=20,
+        default='reported',
+        choices=[
+            ('reported', 'Reported'),
+            ('in_progress', 'In Progress'),
+            ('resolved', 'Resolved'),
+        ]
+    )
 
     def __str__(self):
-        return f"{self.title} - {self.status}"
+        return f"{self.get_emergency_type_display()} - {self.get_severity_display()}"

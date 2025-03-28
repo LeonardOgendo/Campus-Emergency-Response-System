@@ -13,7 +13,7 @@ const TopNav = () => {
     };
 
     const handleViewProfile = () => {
-        navigate('/account');
+        navigate('/user/account');
         setDropdown(null);
     };
 
@@ -34,10 +34,13 @@ const TopNav = () => {
                 <i className="fa fa-bell"></i>
                 <span>3</span>
             </div>
-            <div className="profile-container">
+            <div className="profile-container position-relative">
                 {user ? (
                     <>
-                        <div className="user-account ms-4 me-2" onClick={() => toggleDropdown("profile")}>
+                        <div
+                            className="user-account ms-4 me-2 d-flex align-items-center cursor-pointer"
+                            onClick={() => toggleDropdown("profile")}
+                        >
                             <p className="profile-box me-1">
                                 {user.first_name.charAt(0).toUpperCase()}
                             </p>
@@ -47,10 +50,20 @@ const TopNav = () => {
                             </div>
                         </div>
                         {dropdown === "profile" && (
-                            <div className="profile-dropdown">
-                                <ul>
-                                    <li onClick={handleViewProfile}>View Profile</li>
-                                    <li onClick={logout}>Logout</li>
+                            <div className="profile-dropdown position-absolute bg-white shadow-sm rounded py-2">
+                                <ul className="list-unstyled mb-0">
+                                    <li
+                                        className="px-3 py-2 hover-bg cursor-pointer"
+                                        onClick={handleViewProfile}
+                                    >
+                                        <i className="fa fa-user me-2"></i> View Profile
+                                    </li>
+                                    <li
+                                        className="px-3 py-2 hover-bg cursor-pointer"
+                                        onClick={logout}
+                                    >
+                                        <i className="fa fa-sign-out me-2"></i> Logout
+                                    </li>
                                 </ul>
                             </div>
                         )}

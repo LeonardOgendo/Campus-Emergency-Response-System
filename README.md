@@ -1,31 +1,31 @@
 ## CERS
 
-### 📌 Overview
+### Overview
 CERS is a cross-platform web application 
 designed to enhance campus safety by providing real-time emergency reporting, 
 responder coordination, and instant alerts. Built with React (frontend) and Django (backend) 
 using DRF for API communication, CERS ensures that emergencies are reported, assigned, and tracked efficiently.
 
-<br>
+---
 
 ### Key Features
 
-✅ One-click emergency reporting with automatic GPS location.
+- One-click emergency reporting with automatic GPS location.
 
-✅ Twilio-triggered emergency calls, SMS, and push notifications to responders.
+- Twilio-triggered emergency calls, SMS, and push notifications to responders.
 
-✅ Priority-based emergency assignment (High, Medium, Low).
+- Priority-based emergency assignment (High, Medium, Low).
 
-✅ Live responder updates (confirmation & estimated time of arrival - ETA).
+- Live responder updates (confirmation & estimated time of arrival - ETA).
 
-✅ Custom React Admin Dashboard for real-time monitoring & analytics.
+- Custom React Admin Dashboard for real-time monitoring & analytics.
 
-✅ Incident logs & risk-prone area tracking for better security planning.
+- Incident logs & risk-prone area tracking for better security planning.
 
 
-<br>
+---
 
-### 🛠️ Tech Stack
+### Tech Stack
 
 - `Frontend`: React, Bootstrap, CSS
 
@@ -35,16 +35,16 @@ using DRF for API communication, CERS ensures that emergencies are reported, ass
 
 - `APIs & Services`: Twilio (Emergency Calls)
 
-<br>
+---
 
-### 🚀 Installation Guide
+### Installation Guide
 
 Follow these steps to setup CERS locally:
 
 1. Clone Repository
 
 ```
-git clone https://github.com/LeonardOgendo/Campus-Emergency-Response-System.git CERS_Project
+git clone https://github.com/LeonardOgendo/CERS.git CERS_Project
 cd CERS_Project
 ```
 
@@ -79,7 +79,7 @@ Create a `.env` file for Django & React, specifying Twilio credentials,
 database configs, and API keys.
 
 
-<br>
+---
 
 🚀 CERS - Making Campuses Safer with Technology!
 

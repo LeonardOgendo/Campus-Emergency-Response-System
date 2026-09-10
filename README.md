@@ -12,15 +12,11 @@ using DRF for API communication, CERS ensures that emergencies are reported, ass
 
 - One-click emergency reporting with automatic GPS location.
 
-- Twilio-triggered emergency calls, SMS, and push notifications to responders.
-
 - Priority-based emergency assignment (High, Medium, Low).
 
-- Live responder updates (confirmation & estimated time of arrival - ETA).
+- Live responder updates.
 
 - Custom React Admin Dashboard for real-time monitoring & analytics.
-
-- Incident logs & risk-prone area tracking for better security planning.
 
 
 ---
@@ -43,17 +39,17 @@ Follow these steps to setup CERS locally:
 
 1. Clone Repository
 
-```
-git clone https://github.com/LeonardOgendo/CERS.git CERS_Project
-cd CERS_Project
+```bash
+git clone https://github.com/LeonardOgendo/CERS.git
+cd CERS
 ```
 
 <br>
 
 2. Backend Setup (Django)
 
-```
-cd 2-Backend
+```bash
+cd backend
 virtualenv venv  # Create a virtual environment
 source venv/bin/activate    # Activate environemt (Linux)
 pip install -r requirements.txt    # Install dependencies
@@ -64,8 +60,8 @@ python3 manage.py runserver   # Start backend server
 
 3. Frontend Setup (React)
 
-```
-cd 1-Frontend
+```bash
+cd frontend
 # For both interfaces
 npm install   # Install dependencies
 npm run dev   # Start development server
@@ -81,5 +77,4 @@ database configs, and API keys.
 
 ---
 
-🚀 CERS - Making Campuses Safer with Technology!
 

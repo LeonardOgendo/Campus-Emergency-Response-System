@@ -1,3 +1,7 @@
+> **NOTE**: This repository is no longer maintained and is kept for historical reference only. A new standard version is being built from scratch in a separate repository. If you wish to continue developing this code, I recommend you fork it.
+
+---
+
 ## CERS
 
 ### Overview
